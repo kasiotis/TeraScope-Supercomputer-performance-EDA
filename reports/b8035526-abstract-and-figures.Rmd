@@ -1,0 +1,36 @@
+---
+title: "b8035526-abstract-and-figures"
+author: "Antreas Kasiotis"
+date: "17/01/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir= normalizePath('..'))
+```
+```{r ProjectTemplate, include=FALSE}
+library(ProjectTemplate)
+load.project()
+
+```
+## Structured Abstract
+
+A Terapixel visualization requires the use of systems that are far larger and more complex than the ordinary computer system. Therefore, an educated and well structured performance evaluation of cloud supercomputing systems is crucial in promoting the development, selection, introduction and effective utilization of such systems. The goal of this investigation is primarily to delve into the matters of software system and hardware performance and operation. The approach that was taken was that of carrying out exploratory data analysis on a large dataset with information about the operation and characteristics of the system in order to get answers for a set of critical questions. The findings of the analysis suggest that the types of GPUs that are used, heavily influence the performance in both the overall operation as well as in particular tasks of the rendering application, with some GPUs even being four times slower than others. Furthermore, it was found that each individual tile of the image required a different amounts of computational resources which could suggest that the rendering process could be better optimized around them. Supercoputers are known to be prone to errors and issues in terms of the performance, primarily due to their complexity. The novelty of this investigation is that is aims to explore the reasons that may lay behind these problems and looks at the changes that could be made to offset them.
+
+## Key Images
+```{r include=FALSE}
+source("src/gpu-card-performance-eda.R", local = knitr::knit_global())
+```
+
+```{r include=FALSE}
+source("src/tile-computational-requirements-eda.R", local = knitr::knit_global())
+```
+```{r fig.height=4.5, fig.width= 8 ,echo=FALSE}
+plot.gpu.card.per.event()
+```
+
+```{r fig.height=8, fig.width= 8 ,echo=FALSE}
+library(autoimage)
+plot.tile.runtime()
+```
